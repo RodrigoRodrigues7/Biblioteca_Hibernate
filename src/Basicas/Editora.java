@@ -1,5 +1,6 @@
     package Basicas;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +22,7 @@ public class Editora {
     
     @OneToMany(mappedBy = "editora", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    private List<Livro> livrosEditora;
+    private List<Livro> livrosEditora = new ArrayList<Livro>();
     
     public int getId() {
         return id;
@@ -51,7 +52,7 @@ public class Editora {
         return livrosEditora;
     }
     
-    public void setLivrosEditora(List<Livro> livrosEditora) {
+    public void setLivrosEditora(ArrayList<Livro> livrosEditora) {
         this.livrosEditora = livrosEditora;
     }
 
