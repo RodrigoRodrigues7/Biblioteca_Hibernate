@@ -1,9 +1,9 @@
 package biblioteca;
 
-//import Basicas.Autor;
-//import Basicas.Cliente;
+import Basicas.Autor;
+import Basicas.Cliente;
 import Basicas.Endereco;
-//import java.util.Calendar;
+import java.util.Calendar;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -19,14 +19,21 @@ public class Biblioteca {
         EntityTransaction et = em.getTransaction();
         et.begin();
 
-//        Cliente cli = new Cliente();
-//        cli.setNome("Alexandre Conselheiro");
-//        cli.setCpf("112.897.623-11");
-//        cli.setEmail("Aledipop.xande@gmail.com");
-//        Calendar dataCliente = Calendar.getInstance();
-//        dataCliente.set(1964, 25, 4);
-//        cli.setDataNasc(dataCliente);
-//        cli.setMatricula(1);
+        Cliente cli1 = new Cliente();
+        cli1.setNome("Alexandre");
+        cli1.setCpf("112.897.623-11");
+        cli1.setEmail("Alexandre@gmail.com");
+        Calendar dataCli1 = Calendar.getInstance();
+        dataCli1.set(1964, 25, 4);
+        cli1.setDataNasc(dataCli1);
+
+        Endereco end = new Endereco();
+        end.setLogradouro("Rua da Concórdia");
+        end.setBairro("Caseb");
+        end.setCidade("Feira de Santana");
+        end.setEstado("Bahia");
+        end.setPessoa(cli1);
+
 //        Autor aut = new Autor();
 //        aut.setNome("Jorge Leal de Faria");
 //        aut.setCpf("433.435.645-65");
@@ -35,18 +42,10 @@ public class Biblioteca {
 //        dataAutor.set(1912, 3, 5);
 //        aut.setDataNasc(dataAutor);
 //        aut.setNomeDeAutor("Jorge Amado");
-
-        
-
-        Endereco end = new Endereco();
-        end.setLogradouro("Rua da Concórdia");
-        end.setBairro("Caseb");
-        end.setCidade("Feira de Santana");
-        end.setEstado("Bahia");
-//        end.setPessoa(aut);
-
-        em.persist(end);
+//
 //        em.persist(aut);
+        em.persist(end);
+        em.persist(cli1);
         em.getTransaction().commit();
 
         em.close();
