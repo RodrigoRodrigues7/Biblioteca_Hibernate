@@ -1,5 +1,6 @@
 package Basicas;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +30,7 @@ public class Livro {
     @JoinTable(name = "Autor_Livros",
             joinColumns = @JoinColumn(name = "ID_Livro"),
             inverseJoinColumns = @JoinColumn(name = "ID_Autor"))
-    private List<Autor> autores;
+    private List<Autor> autores = new ArrayList<Autor>();
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_ID_Editora",
@@ -60,7 +61,7 @@ public class Livro {
         return autores;
     }
     
-    public void setAutores(List<Autor> autores) {
+    public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
     }
     
