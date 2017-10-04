@@ -22,7 +22,7 @@ public class Biblioteca {
         et.begin();
 
         Cliente cli1 = new Cliente();
-        cli1.setMatricula(1);        
+        cli1.setMatricula(1);
         cli1.setNome("Alexandre");
         cli1.setCpf("112.897.623-11");
         cli1.setEmail("Alexandre@gmail.com");
@@ -91,8 +91,12 @@ public class Biblioteca {
 //
         Editora edi1 = new Editora();
         edi1.setNome("MARINHO");
-        edi1.setCidade("Recife");
+        edi1.setCidade("São Paulo");
 //
+        Editora edi2 = new Editora();
+        edi2.setNome("SANTA PAULA");
+        edi2.setCidade("Paraná");
+//        
 //=========================================================
 //
         Livro liv1 = new Livro();
@@ -101,8 +105,24 @@ public class Biblioteca {
         Calendar anoLiv1 = Calendar.getInstance();
         anoLiv1.set(1987, 7, 16);
         liv1.setAnoDePublicacao(anoLiv1);
-//        edi1.setLivrosEditora();
+//        
+        Livro liv2 = new Livro();
+        liv2.setTitulo("BBBBBB");
+        liv2.setEditora(edi2);
+        Calendar anoLiv2 = Calendar.getInstance();
+        anoLiv2.set(1987, 7, 16);
+        liv2.setAnoDePublicacao(anoLiv2);
+//
+        Livro liv3 = new Livro();
+        liv3.setTitulo("CCCCCC");
+        liv3.setEditora(edi1);
+        Calendar anoLiv3 = Calendar.getInstance();
+        anoLiv3.set(1987, 7, 16);
+        liv3.setAnoDePublicacao(anoLiv3);
 
+        edi1.getLivrosEditora().add(liv1);
+        edi2.getLivrosEditora().add(liv2);
+        edi1.getLivrosEditora().add(liv3);
 //
 //=========================================================
 //
@@ -110,8 +130,13 @@ public class Biblioteca {
         em.persist(aut1);
         em.persist(aut2);
         em.persist(aut3);
-        em.persist(edi1);
+//        
         em.persist(liv1);
+        em.persist(liv2);
+        em.persist(liv3);
+//        
+        em.persist(edi1);
+        em.persist(edi2);
 //
         em.persist(end1);
         em.persist(end2);
