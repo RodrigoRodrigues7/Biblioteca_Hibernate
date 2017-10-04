@@ -103,22 +103,27 @@ public class Biblioteca {
         liv1.setTitulo("AAAAAA");
         liv1.setEditora(edi1);
         Calendar anoLiv1 = Calendar.getInstance();
-        anoLiv1.set(1987, 7, 16);
+        anoLiv1.set(1934, 2, 22);
         liv1.setAnoDePublicacao(anoLiv1);
+        liv1.getAutores().add(aut1);
 //        
         Livro liv2 = new Livro();
         liv2.setTitulo("BBBBBB");
         liv2.setEditora(edi2);
         Calendar anoLiv2 = Calendar.getInstance();
-        anoLiv2.set(1987, 7, 16);
-        liv2.setAnoDePublicacao(anoLiv2);
+        anoLiv2.set(1998, 11, 30);
+        liv2.setAnoDePublicacao(anoLiv2);  
+        liv2.getAutores().add(aut1);
+        liv2.getAutores().add(aut2);
+        liv2.getAutores().add(aut3);
 //
         Livro liv3 = new Livro();
         liv3.setTitulo("CCCCCC");
         liv3.setEditora(edi1);
         Calendar anoLiv3 = Calendar.getInstance();
-        anoLiv3.set(1987, 7, 16);
+        anoLiv3.set(2002, 4, 7);
         liv3.setAnoDePublicacao(anoLiv3);
+        liv3.getAutores().add(aut3);  
 
         edi1.getLivrosEditora().add(liv1);
         edi2.getLivrosEditora().add(liv2);
