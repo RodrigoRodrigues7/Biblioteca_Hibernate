@@ -20,6 +20,7 @@ public class Biblioteca {
         et.begin();
 
         Cliente cli1 = new Cliente();
+        cli1.setMatricula(1);
         cli1.setNome("Alexandre");
         cli1.setCpf("112.897.623-11");
         cli1.setEmail("Alexandre@gmail.com");
@@ -27,13 +28,13 @@ public class Biblioteca {
         dataCli1.set(1964, 25, 4);
         cli1.setDataNasc(dataCli1);
 
-        Endereco end = new Endereco();
-        end.setLogradouro("Rua da Concórdia");
-        end.setBairro("Caseb");
-        end.setCidade("Feira de Santana");
-        end.setEstado("Bahia");
-        end.setPessoa(cli1);
-
+        Endereco end1 = new Endereco();
+        end1.setLogradouro("Rua da Concórdia");
+        end1.setBairro("Caseb");
+        end1.setCidade("Feira de Santana");
+        end1.setEstado("Bahia");
+        cli1.setEndereco(end1);
+        
 //        Autor aut = new Autor();
 //        aut.setNome("Jorge Leal de Faria");
 //        aut.setCpf("433.435.645-65");
@@ -44,8 +45,9 @@ public class Biblioteca {
 //        aut.setNomeDeAutor("Jorge Amado");
 //
 //        em.persist(aut);
-        em.persist(end);
+//
         em.persist(cli1);
+        em.persist(end1);
         em.getTransaction().commit();
 
         em.close();
