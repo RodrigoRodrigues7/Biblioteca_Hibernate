@@ -2,29 +2,28 @@ package Basicas;
 
 import java.util.Calendar;
 import java.util.Objects;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Pessoa {
+@MappedSuperclass
+public abstract class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String cpf;
     private String email;
     private Calendar dataNasc;
     
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne
+    @JoinColumn(name = "FK_Num_Endereco")
     @Cascade(CascadeType.ALL)
     private Endereco endereco;
     
