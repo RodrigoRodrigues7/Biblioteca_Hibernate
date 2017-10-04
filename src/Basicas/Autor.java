@@ -1,5 +1,6 @@
 package Basicas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ public class Autor extends Pessoa {
     @JoinTable(name = "Autor_Livros",
             joinColumns = @JoinColumn(name = "ID_Autor"),
             inverseJoinColumns = @JoinColumn(name = "ID_Livro"))
-    private List<Livro> LivrosAutor;
+    private List<Livro> LivrosAutor = new ArrayList<Livro>();
 
     public String getNomeDeAutor() {
         return nomeDeAutor;
@@ -31,7 +32,7 @@ public class Autor extends Pessoa {
         return LivrosAutor;
     }
 
-    public void setLivrosAutor(List<Livro> Livros) {
+    public void setLivrosAutor(ArrayList<Livro> Livros) {
         this.LivrosAutor = Livros;
     }
 
